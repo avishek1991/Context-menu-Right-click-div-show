@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<title>Rigt click add div</title>
+	<script>
+	$(document).ready(function(){
+	
+	
+	/*$('.parent').contextmenu(function (ev) {
+    var $div = $(ev.target);
+    var offset = $div.offset();
+    var x = ev.clientX - offset.left;
+    var y = ev.clientY - offset.top;
+	
+	$('.parent-menu').css('display', 'block');
+	$('.parent-menu').css('top', e.pageY);
+	$('.parent-menu').css('left', e.pageX);
+    });
+	*/
+
+	
+	/*function a() {
+    var currentMousePos = { x: -1, y: -1 };
+    $(".parent").mousemove(function(event) {
+        currentMousePos.x = event.pageX;
+        currentMousePos.y = event.pageY;
+		console.log(x + y)
+		});
+    }*/
+	
+	
+	
+	
+	
+		
+
+	
+		
+		/*$('.parent').contextmenu(function() {		
+		$('.parent').mousemove(function(e){
+		$('.parent-menu').css('display', 'block');
+		$('.parent-menu').css('top', e.pageY);
+		$('.parent-menu').css('left', e.pageX);
+	});	
+});*/
+		
+		
+		
+  $(".parent").contextmenu(function(e){
+   var parent = $(this); 
+   var relX = e.offsetX + parent.scrollLeft();
+   var relY = e.offsetY + parent.scrollTop();
+   $('.parent-menu').css({'display': 'block'});
+   $('.parent').append($('.parent-menu').css({left: relX, top: relY,}));
+   });
+		
+	
+	
+	$('*').click(function(){
+	$('.parent-menu').hide();
+	})
+	
+	$('.menu').click(function(){
+	alert($(this).text())
+	})
+	
+	
+	
+		
+});
+
+
+	
+	</script>
+	<style>
+	.parent{height:400px;width:100%;border:2px solid red;}
+	.parent-menu{background: #954BA4;width: 190px;text-align:center;position:absolute;display:none;}
+	.menu{border:1px solid;padding: 6px;cursor:pointer;}
+	.menu:hover{background-color:#29ABE2;}
+	.placeddiv{ background-color: #0A0C11;
+    width: 40px;
+    height: 40px;
+    position: absolute;}
+	
+	</style>
+  </head>
+  <body class="">
+  
+  
+ <div class="parent" oncontextmenu="return false;"></div>
+ 
+  
+	<div class="parent-menu">
+		<div class="menu">MENU ONE</div>
+		<div class="menu">MENU TWO</div>
+		<div class="menu">MENU THREE</div>
+		<div class="menu">MENU FOURE</div>
+		<div class="menu">MENU FIVE</div>
+	</div>
+      
+    
+
+    
+
+  </body>
+</html>
